@@ -1,0 +1,23 @@
+//package service;
+//
+//import kr.ac.kopo07.ctc.kopo07.dto.Pagination;
+//import kr.ac.kopo07.ctc.kopo07.service.StudentItemDaoMock;
+//import kr.ac.kopo07.ctc.kopo07.service.StudentItemService;
+//import kr.ac.kopo07.ctc.kopo07.service.StudentItemServiceImpl;
+//
+//// junit 테스트
+//public class StudentItemServiceTest {
+//
+//	public static void main(String[] args) {
+//
+//		StudentItemDaoMock studentItemDao = new StudentItemDaoMock();
+//
+//		StudentItemService studentItemService = new StudentItemServiceImpl();
+//
+//		// 테스트를 할때는 가짜 Mock으로 생성한 가짜 Dao를 넣어서 테스트를 하면 실제 디비에 값이 들어가는게 아니라 테스트가 가능하다.
+//		studentItemService.setStudentItemDao(studentItemDao);
+//
+//		Pagination pagination = studentItemService.getPagination(1, 50, 10);
+//
+//	}
+//}

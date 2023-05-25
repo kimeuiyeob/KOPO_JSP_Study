@@ -1,0 +1,150 @@
+package service;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+import kr.ac.kopo07.ctc.kopo07.dto.Pagination;
+import kr.ac.kopo07.ctc.kopo07.service.StudentItemDaoMock;
+import kr.ac.kopo07.ctc.kopo07.service.StudentItemService;
+import kr.ac.kopo07.ctc.kopo07.service.StudentItemServiceImpl;
+
+class StudentItemServiceJTest {
+
+	@Test
+	void test_1_5() {
+		StudentItemDaoMock studentItemDao = new StudentItemDaoMock();
+		StudentItemService studentItemService = new StudentItemServiceImpl();
+		studentItemService.setStudentItemDao(studentItemDao);
+
+		Pagination pagination = studentItemService.getPagination(1, 5);
+		assertEquals(pagination.getCurrentPage(), 1);
+		assertEquals(pagination.getStartPage(), -1);
+		assertEquals(pagination.getEndPage(), -1);
+		assertEquals(pagination.getPre(), 1);
+		assertEquals(pagination.getPpre(), 10);
+		assertEquals(pagination.getNext(), 11);
+		assertEquals(pagination.getNnext(), 11);
+	}
+
+	void test_0_5() {
+		StudentItemDaoMock studentItemDao = new StudentItemDaoMock();
+		StudentItemService studentItemService = new StudentItemServiceImpl();
+		studentItemService.setStudentItemDao(studentItemDao);
+
+		Pagination pagination = studentItemService.getPagination(0, 5);
+		assertEquals(pagination.getCurrentPage(), 1);
+		assertEquals(pagination.getStartPage(), -1);
+		assertEquals(pagination.getPre(), -1);
+		assertEquals(pagination.getStartPages(), 1);
+		assertEquals(pagination.getEndPage(), 10);
+		assertEquals(pagination.getNextPage(), 11);
+		assertEquals(pagination.getEndPage(), 11);
+	}
+
+	void test_m1_5() {
+		StudentItemDaoMock studentItemDao = new StudentItemDaoMock();
+		StudentItemService studentItemService = new StudentItemServiceImpl();
+		studentItemService.setStudentItemDao(studentItemDao);
+
+		Pagination pagination = studentItemService.getPagination(-1, 5);
+		assertEquals(pagination.getCurrentPage(), 1);
+		assertEquals(pagination.getStartPage(), -1);
+		assertEquals(pagination.getPre(), -1);
+		assertEquals(pagination.getStartPages(), 1);
+		assertEquals(pagination.getEndPage(), 10);
+		assertEquals(pagination.getNextPage(), 11);
+		assertEquals(pagination.getEndPage(), 11);
+	}
+
+	void test_10_5() {
+		StudentItemDaoMock studentItemDao = new StudentItemDaoMock();
+		StudentItemService studentItemService = new StudentItemServiceImpl();
+		studentItemService.setStudentItemDao(studentItemDao);
+
+		Pagination pagination = studentItemService.getPagination(10, 5);
+		assertEquals(pagination.getCurrentPage(), 1);
+		assertEquals(pagination.getStartPage(), -1);
+		assertEquals(pagination.getPre(), -1);
+		assertEquals(pagination.getStartPages(), 1);
+		assertEquals(pagination.getEndPage(), 10);
+		assertEquals(pagination.getNextPage(), 11);
+		assertEquals(pagination.getEndPage(), 11);
+	}
+
+	void test_11_5() {
+		StudentItemDaoMock studentItemDao = new StudentItemDaoMock();
+		StudentItemService studentItemService = new StudentItemServiceImpl();
+		studentItemService.setStudentItemDao(studentItemDao);
+
+		Pagination pagination = studentItemService.getPagination(11, 5);
+		assertEquals(pagination.getCurrentPage(), 11);
+		assertEquals(pagination.getStartPage(), 1);
+		assertEquals(pagination.getPre(), 1);
+		assertEquals(pagination.getStartPages(), 11);
+		assertEquals(pagination.getEndPage(), 15);
+		assertEquals(pagination.getNextPage(), -1);
+		assertEquals(pagination.getEndPage(), -1);
+	}
+
+	void test_14_5() {
+		StudentItemDaoMock studentItemDao = new StudentItemDaoMock();
+		StudentItemService studentItemService = new StudentItemServiceImpl();
+		studentItemService.setStudentItemDao(studentItemDao);
+
+		Pagination pagination = studentItemService.getPagination(14, 5);
+		assertEquals(pagination.getCurrentPage(), 14);
+		assertEquals(pagination.getStartPage(), 1);
+		assertEquals(pagination.getPre(), 1);
+		assertEquals(pagination.getStartPages(), 11);
+		assertEquals(pagination.getEndPage(), 15);
+		assertEquals(pagination.getNextPage(), -1);
+		assertEquals(pagination.getEndPage(), -1);
+	}
+
+	void test_15_5() {
+		StudentItemDaoMock studentItemDao = new StudentItemDaoMock();
+		StudentItemService studentItemService = new StudentItemServiceImpl();
+		studentItemService.setStudentItemDao(studentItemDao);
+
+		Pagination pagination = studentItemService.getPagination(15, 5);
+		assertEquals(pagination.getCurrentPage(), 15);
+		assertEquals(pagination.getStartPage(), 1);
+		assertEquals(pagination.getPre(), 1);
+		assertEquals(pagination.getStartPages(), 11);
+		assertEquals(pagination.getEndPage(), 15);
+		assertEquals(pagination.getNextPage(), -1);
+		assertEquals(pagination.getEndPage(), -1);
+	}
+
+	void test_16_5() {
+		StudentItemDaoMock studentItemDao = new StudentItemDaoMock();
+		StudentItemService studentItemService = new StudentItemServiceImpl();
+		studentItemService.setStudentItemDao(studentItemDao);
+
+		Pagination pagination = studentItemService.getPagination(16, 5);
+		assertEquals(pagination.getCurrentPage(), 15);
+		assertEquals(pagination.getStartPage(), 1);
+		assertEquals(pagination.getPre(), 1);
+		assertEquals(pagination.getStartPages(), 11);
+		assertEquals(pagination.getEndPage(), 15);
+		assertEquals(pagination.getNextPage(), -1);
+		assertEquals(pagination.getEndPage(), -1);
+	}
+
+	void test_20_5() {
+		StudentItemDaoMock studentItemDao = new StudentItemDaoMock();
+		StudentItemService studentItemService = new StudentItemServiceImpl();
+		studentItemService.setStudentItemDao(studentItemDao);
+
+		Pagination pagination = studentItemService.getPagination(20, 5);
+		assertEquals(pagination.getCurrentPage(), 15);
+		assertEquals(pagination.getStartPage(), 1);
+		assertEquals(pagination.getPre(), 1);
+		assertEquals(pagination.getStartPages(), 11);
+		assertEquals(pagination.getEndPage(), 15);
+		assertEquals(pagination.getNextPage(), -1);
+		assertEquals(pagination.getEndPage(), -1);
+	}
+
+}

@@ -1,0 +1,15 @@
+package kr.ac.kopo07.ctc.kopo07.dao;
+
+public interface StudentItemDao {
+	
+	//crud
+	
+	//create
+	
+	//selectAll
+	
+	//update
+	
+	//delete
+
+}

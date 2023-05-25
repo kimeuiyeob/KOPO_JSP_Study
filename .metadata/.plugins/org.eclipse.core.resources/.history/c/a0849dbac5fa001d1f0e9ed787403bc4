@@ -1,0 +1,31 @@
+package service;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+import kr.ac.kopo07.ctc.kopo07.dto.Pagination;
+import kr.ac.kopo07.ctc.kopo07.service.StudentItemDaoMock;
+import kr.ac.kopo07.ctc.kopo07.service.StudentItemService;
+import kr.ac.kopo07.ctc.kopo07.service.StudentItemServiceImpl;
+
+class StudentItemServiceJTest {
+
+	@Test
+	void test_1_5() {
+		StudentItemDaoMock studentItemDao = new StudentItemDaoMock();
+		StudentItemService studentItemService = new StudentItemServiceImpl();
+		studentItemService.setStudentItemDao(studentItemDao);
+
+		Pagination pagination = studentItemService.getPagination(1, 5);
+		assertEquals(pagination.getCurrentPage(), 1);
+		assertEquals(pagination.getPpre(), 10);
+		assertEquals(pagination.getPre(), 1);
+		assertEquals(pagination.getStartPage(), -1);
+		assertEquals(pagination.getEndPage(), -1);
+		assertEquals(pagination.getNext(), 11);
+		assertEquals(pagination.getNnext(), 11);
+
+	}
+
+}

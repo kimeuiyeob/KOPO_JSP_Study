@@ -1,0 +1,16 @@
+package service;
+
+import kr.ac.kopo07.ctc.kopo07.dto.Pagination;
+import kr.ac.kopo07.ctc.kopo07.service.StudentItemService;
+import kr.ac.kopo07.ctc.kopo07.service.StudentItemServiceImpl;
+
+public class StudentItemServiceTest {
+
+	public static void main(String[] args) {
+
+		StudentItemService studentItemService = new StudentItemServiceImpl();
+		Pagination pagination = studentItemService.getPagination(5, 50, 10);
+		
+
+	}
+}

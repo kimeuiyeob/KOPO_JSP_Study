@@ -1,0 +1,32 @@
+package kr.ac.kopo07.ctc.kopo07.service;
+
+import kr.ac.kopo07.ctc.kopo07.dao.StudentItemDao;
+import kr.ac.kopo07.ctc.kopo07.dao.StudentItemDaoImpl;
+import kr.ac.kopo07.ctc.kopo07.dto.Pagination;
+
+public class StudentItemServiceImpl implements StudentItemService {
+
+	@Override
+	public Pagination getPagination(int page, int countPerPage) {
+
+		Pagination pagination = new Pagination(1, 5);
+		StudentItemDaoImpl studentItemDaoImpl = new StudentItemDaoImpl();
+
+		int totalCount = studentItemDaoImpl.totalCount();
+		int endPage = 0;
+
+		return pagination;
+	}
+
+	@Override
+	public StudentItemDao getStudentItemDao() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public StudentItemDao setStudentItemDao(StudentItemDao studentItemDao) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

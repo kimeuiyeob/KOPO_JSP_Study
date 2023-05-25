@@ -1,0 +1,19 @@
+package service;
+
+import kr.ac.kopo07.ctc.kopo07.dto.Pagination;
+import kr.ac.kopo07.ctc.kopo07.service.StudentItemService;
+import kr.ac.kopo07.ctc.kopo07.service.StudentItemServiceImpl;
+
+// junit 테스트
+public class StudentItemServiceTest {
+
+	public static void main(String[] args) {
+
+		StudentItemService studentItemService = new StudentItemServiceImpl();
+		studentItemService.setStudentItemDao(null);
+		
+		Pagination pagination = studentItemService.getPagination(5, 20, 10);
+		
+
+	}
+}

@@ -1,0 +1,8 @@
+package kr.ac.kopo07.ctc.kopo07.service;
+
+public interface StudentItemService {
+	
+	//페이지 가져오기
+	//getPagination();
+
+}

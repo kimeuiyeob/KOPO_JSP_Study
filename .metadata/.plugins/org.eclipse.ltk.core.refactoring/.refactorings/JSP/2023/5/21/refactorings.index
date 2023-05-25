@@ -1,0 +1,15 @@
+1684884545023	Rename resource 'hello.jsp'
+1684884707274	Delete element
+1684894085366	Rename resource 'inser.jsp'
+1684979824451	Copy package
+1684979839751	Delete element
+1684979886863	Copy package
+1684979891436	Delete element
+1684980869432	Move 'test' to 'src'
+1684980983922	Delete element
+1684981013610	Rename source folder 'src/test'
+1684981039347	Delete element
+1684981087236	Delete element
+1684985838071	Delete element
+1684988228788	Rename compilation unit 'JTEST.java'
+1684995789482	Rename method 'getPpre'

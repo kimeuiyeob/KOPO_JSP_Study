@@ -1,0 +1,13 @@
+package kr.ac.kopo07.ctc.kopo07.service;
+
+import kr.ac.kopo07.ctc.kopo07.dto.Pagination;
+
+public interface StudentItemService {
+
+	// 페이지 가져오기
+	// 해당 페이지의 시작값 startPage = 1 그리고 끝나는값 endPage = 15
+	// > >> 다음페이지 , << < 이전페이지
+	// 해당 페이지 색깔
+	Pagination getPagination(int page, int countPerPage);
+
+}

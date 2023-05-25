@@ -1,0 +1,15 @@
+package service;
+
+import kr.ac.kopo07.ctc.kopo07.service.StudentItemService;
+
+public class StudentItemServiceTest {
+
+	public static void main(String[] args) {
+
+		StudentItemService studentItemService = new StudentItemService();
+
+		Pagination pagination = studentItemService.getPagination(5, 50, 10);
+
+	}
+
+}

@@ -1,0 +1,12 @@
+package kr.ac.kopo07.ctc.kopo07.domain;
+
+public class StudentItem {
+	
+	private long id;
+	private String name;
+	private int studentid;
+	private int kor;
+	private int eng;
+	private int mat;
+
+}

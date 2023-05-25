@@ -1,0 +1,19 @@
+package kr.ac.kopo07.ctc.kopo07.service;
+
+import kr.ac.kopo07.ctc.kopo07.dao.StudentItemDao;
+import kr.ac.kopo07.ctc.kopo07.dto.Pagination;
+
+public interface StudentItemService {
+	
+	StudentItemDao getStudentItemDao();
+
+	StudentItemDao setStudentItemDao(StudentItemDao studentItemDao);
+	
+	// 페이지 가져오기
+	// 해당 페이지의 시작값 startPage = 1 그리고 끝나는값 endPage = 10
+	// > >> 다음페이지 , << < 이전페이지
+	// 해당 페이지 색깔
+	// width = page 갯수 출력
+	public Pagination getPagination(int page, int countPerPage, int width);
+
+}

@@ -1,0 +1,60 @@
+package kr.ac.kopo07.ctc.kopo07.service;
+
+import kr.ac.kopo07.ctc.kopo07.dao.StudentItemDao;
+import kr.ac.kopo07.ctc.kopo07.dto.Pagination;
+
+public class StudentItemServiceImpl implements StudentItemService {
+
+	private StudentItemDao studentItemDao;
+
+	@Override
+	public Pagination getPagination(int page, int countPerPage) {
+
+		/* studentItemDao.selectAll(0, 0); */
+		Pagination pagination = new Pagination();
+
+		int totalCount = studentItemDao.totalCount(); // 총 갯수!!
+		int countList = 10;
+
+		int totalPage = totalCount / countList;
+
+		if (totalCount % countList > 0) {
+			totalPage++;
+		}
+
+		if (totalPage < page) {
+			page = totalPage;
+		}
+
+		int startPage = ((page - 1) / countPerPage) * countPerPage + 1;
+		int endPage = startPage + countPerPage - 1;
+
+		if (endPage > totalPage) {
+			endPage = totalPage;
+		}
+
+		pagination.setCurrentPage(page);
+		pagination.setEndPage(endPage);
+		pagination.setStartPage(startPage);
+
+		pagination.setPre(page - 1);
+		pagination.setPpre(startPage);
+
+		pagination.setNext(page + 1);
+		pagination.setNnext(endPage);
+
+		return pagination;
+	}
+
+	@Override
+	public StudentItemDao getStudentItemDao() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public StudentItemDao setStudentItemDao(StudentItemDao studentItemDao) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

@@ -1,0 +1,18 @@
+2023-05-24 08:23:30,626 [Worker-8: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-05-24 08:23:52,730 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-05-24 08:56:51,200 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-05-24 12:29:21,685 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-05-24 13:15:19,431 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-05-24 14:31:33,696 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-05-24 16:24:57,095 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-05-24 16:49:36,215 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-05-24 17:31:25,511 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-05-25 08:43:00,912 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-05-25 15:25:46,449 [main] INFO  org.eclipse.jetty.server.Server - jetty-10.0.12; built: 2022-09-14T01:54:40.076Z; git: 408d0139887e27a57b54ed52e2d92a36731a7e88; jvm 17.0.5+8
+2023-05-25 15:25:46,481 [main] INFO  o.e.j.s.s.DefaultSessionIdManager - Session workerName=node0
+2023-05-25 15:25:46,521 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@686369f3{/wse,null,AVAILABLE}
+2023-05-25 15:25:46,546 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@e0c4bd2{HTTP/1.1, (http/1.1)}{0.0.0.0:53868}
+2023-05-25 15:25:46,559 [main] INFO  org.eclipse.jetty.server.Server - Started Server@4421ba4{STARTING}[10.0.12,sto=0] @24204052ms
+2023-05-25 16:24:45,534 [Framework stop - Equinox Container: c60d9e7d-2e54-4686-9655-9c5f188d0c15] INFO  org.eclipse.jetty.server.Server - Stopped Server@4421ba4{STOPPING}[10.0.12,sto=0]
+2023-05-25 16:24:45,539 [Framework stop - Equinox Container: c60d9e7d-2e54-4686-9655-9c5f188d0c15] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@e0c4bd2{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+2023-05-25 16:24:45,570 [Framework stop - Equinox Container: c60d9e7d-2e54-4686-9655-9c5f188d0c15] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@686369f3{/wse,null,STOPPED}

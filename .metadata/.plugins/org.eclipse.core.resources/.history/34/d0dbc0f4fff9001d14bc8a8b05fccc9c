@@ -1,0 +1,177 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+
+<%@ page import="java.util.*"%>
+<%@ page import="java.io.*"%>
+
+<HTML>
+<style>
+.header {
+	height: 50px;
+	text-align: center;
+	background-color: #d7cccc;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+a {
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 16px;
+	color: black;
+}
+
+td {
+	height: 30px;
+}
+
+#pagebutton {
+	
+}
+</style>
+<HEAD>
+<script>
+	function func() {
+		const changeCol = document.getElementById("changeColor");
+		console.log("현재 태그 : " + changeCol.val());
+		changeCol.style.color = "red";
+	}
+</script>
+</HEAD>
+
+<%
+Integer fromPT = 1;
+Integer cntPT = 10;
+
+try {
+	fromPT = Integer.parseInt(request.getParameter("fromPT"));
+	cntPT = Integer.parseInt(request.getParameter("cntPT"));
+} catch (Exception e) {
+	;
+}
+%>
+
+
+<BODY>
+
+	<table border="1" align="center">
+		<tr class="header">
+			<td style="width: 50px">번호</td>
+			<td style="width: 700px">주소</td>
+			<td style="width: 300px">위도</td>
+			<td style="width: 300px">경도</td>
+			<td style="width: 300px">거리</td>
+		</tr>
+
+
+		<%
+		//======================================================================================
+		//CSV 파일 가져와서 읽기
+
+		File file = new File("C:/Users/euiyeob/Desktop/csvFile/전국무료와이파이표준데이터Refine.csv");
+		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), "MS949"));
+
+		try {
+			String readtxt;
+
+			if ((readtxt = br.readLine()) == null) {
+				out.print("빈파일 입니다.");
+			}
+
+			String[] field_name = readtxt.split(",");
+
+			double lat = 37.3860521;
+			double lng = 127.1214038;
+
+			List<String> filefield = new ArrayList<>();
+			int totalCount = 0;
+			while ((readtxt = br.readLine()) != null) {
+				filefield.add(readtxt);
+				totalCount++;
+			}
+
+			//======================================================================================
+			int startPage = 0;
+
+			if (fromPT > 14828) {
+				fromPT = 14821;
+			}
+			startPage = fromPT / (10 * cntPT) * 10;
+
+			int nowPage = (fromPT / 10 + 1);
+
+			int pageShow = 10;
+
+			for (int i = fromPT - 1; i < fromPT + cntPT - 1; i++) {
+				if (i == totalCount) {
+			break;
+				}
+
+				String[] field = filefield.get(i).split(",");
+				double dist = Math.sqrt(
+				Math.pow(Double.parseDouble(field[13]) - lat, 2) + Math.pow(Double.parseDouble(field[14]) - lng, 2));
+		%>
+
+		<tr>
+			<td><%=i + 1%></td>
+			<%-- 번호 --%>
+			<td><%=field[9]%></td>
+			<%-- 소재지명 --%>
+			<td><%=field[13]%></td>
+			<%-- 위도 --%>
+			<td><%=field[14]%></td>
+			<%-- 경도 --%>
+			<td><%=dist%></td>
+			<%-- 거리 --%>
+		</tr>
+
+		<%
+		}
+		%>
+
+		<tr>
+			<td colspan="6" align="center">
+				<%
+				//================================= 페이징 처리 =========================================
+				//이전
+				if (startPage == 0) {
+					;
+				} else {
+				%> <a
+				href="wifi2.jsp?fromPT=<%=(startPage - 10) * 10 + 1%>&cntPT=<%=cntPT%>">
+					<< </a> <%
+ }
+ //페이지
+
+ for (int i = startPage; i < startPage + pageShow; i++) {
+ if ((i * cntPT) > totalCount) {
+ 	break;
+ }
+ %> <a id="changeColor" onclick="func()"
+				href="wifi2.jsp?fromPT=<%=i * cntPT + 1%>&cntPT=<%=cntPT%>"><%=i + 1%>
+
+					<%
+					}
+					%> </a> <%
+ //다음
+ if (startPage == (totalCount / (10 * cntPT)) * 10) {
+ 	;
+ } else {
+ %> <a
+				href="wifi2.jsp?fromPT=<%=(startPage + 10) * cntPT + 1%>&cntPT=<%=cntPT%>">
+					>> </a>
+			</td>
+		</tr>
+
+		<%
+		}
+		} catch (Exception e) {
+		out.print("에러메시지 : " + e + "<br>");
+		} finally {
+		br.close();
+		}
+		%>
+
+	</table>
+
+</BODY>
+</HTML>

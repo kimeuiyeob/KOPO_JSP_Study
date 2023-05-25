@@ -1,0 +1,27 @@
+package kr.ac.kopo07.ctc.kopo07.dao;
+
+import java.util.List;
+
+import kr.ac.kopo07.ctc.kopo07.domain.StudentItem;
+
+public class StudentItemDaoImpl implements StudentItemDao {
+
+	@Override
+	public StudentItem create() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public StduentItem selectOne(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<StudentItem> selectAll(int page, int countPerPage) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
