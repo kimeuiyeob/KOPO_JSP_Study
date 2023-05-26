@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+div {
+	padding-bottom: 50px;
+}
+
+button {
+	background-color: #0a0a23;
+	color: #fff;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+	height: 60px;
+	width: 200px;
+	cursor: pointer;
+	font-size: 20px;
+}

@@ -1,0 +1,42 @@
+package kr.ac.kopo07.ctc.kopo07.dao;
+
+import java.util.List;
+
+import kr.ac.kopo07.ctc.kopo07.domain.StudentItem;
+
+public interface StudentItemDao {
+
+	// ========crud========
+
+	public void createTable();
+
+	public void dropTable();
+
+	StudentItem create();
+
+	// 아이디로 학생 한명 조회
+	public StudentItem selectOne(int id);
+
+	// 학생번호로 학생 한명 조회
+	public StudentItem selectOneByStudentId(int studentid);
+
+	public List<StudentItem> selectAll(int page, int countPerPage);
+
+	// 학생전부 조회
+	public List<StudentItem> selectAllStudent();
+
+	// 학생 추가
+	public StudentItem insert(StudentItem oneStudent);
+
+	// 비어있는 학번 찾기
+	public int emptyStudentId();
+
+	// 학생 한명 수정
+	public StudentItem update(StudentItem oneStudent);
+
+	// 학생 삭제
+	public void deleteOne(int id);
+
+	int totalCount();
+
+}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StudentItemDaoTest" project="JSP" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="dao.StudentItemDaoTest" time="0.279" displayname="StudentItemDaoTest" uniqueid="[engine:junit-jupiter]/[class:dao.StudentItemDaoTest]">
+    <testcase name="test_select_one" classname="dao.StudentItemDaoTest" time="0.279" displayname="test_select_one()" uniqueid="[engine:junit-jupiter]/[class:dao.StudentItemDaoTest]/[method:test_select_one()]"/>
+  </testsuite>
+</testrun>

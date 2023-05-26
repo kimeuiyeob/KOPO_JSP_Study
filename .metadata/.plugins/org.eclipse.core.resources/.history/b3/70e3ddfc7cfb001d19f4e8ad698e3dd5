@@ -1,0 +1,5 @@
+package kr.ac.kopo07.ctc.kopo07.dto;
+
+public class StudentItemDto {
+
+}

@@ -1,27 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<!-- 해당 서비스 클래스 패키지명까지 포함해서 임포트 -->
-<%@ page
-	import="kr.ac.kopo07.ctc.kopo07.service.*,kr.ac.kopo07.ctc.kopo07.dto.*"%>
-	
+<%@ page import="kr.ac.kopo07.ctc.kopo07.dao.*"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
 <body>
 
 	<%
-	
-	StudentItemService studentItemService = new StudentItemServiceImpl();
-	
-	Pagination pagination = studentItemService.getPagination(1, 50, 10);
+	StudentItemDao studentItemDao = new StudentItemDaoImpl();
+	String countingVisitor = studentItemDao.countVisitor();
 	%>
-
-	kopo07
-	<%=pagination.getC()%>
+	<div style="text-align: center">
+		<h1>
+			현재 홈페이지 방문자 수 :
+			<%=countingVisitor%>
+			명입니다.
+		</h1>
+	</div>
+	<div style="display: inline-block; width: 100%;">
+		<iframe src="menu.html" frameborder="0" width="25%" align=left
+			style="height: 100vh; padding-top: 50px; padding-left: 150px;"></iframe>
+		<iframe src="intro.html" name="main" frameborder="0" width="40%"
+			align=left style="height: 100vh; padding-top: 50px;"></iframe>
+	</div>
 
 </body>
 </html>

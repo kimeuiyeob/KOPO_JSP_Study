@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인 메뉴</title>
+</head>
+
+<link rel="stylesheet" href="css/menu.css">
+
+<body>
+
+    <div style="padding-top : 100px">
+        <a href="./create.jsp" target="main"><button>테이블 생성하기</button></a>
+    </div>
+    <div>
+        <a href="./drop.jsp" target="main"><button>테이블 삭제하기</button></a>
+    </div>
+    <div>
+        <a href="./insertRandom.jsp" target="main"><button>테이블에 랜덤값넣기</button></a>
+    </div>
+    <div>
+        <a href="./selectAll.jsp" target="main"><button>테이블 조회하기</button></a>
+    </div>
+
+    <div style="padding-top : 60px">
+        <a href="./insert.jsp" target="main"><button>테이블 값 추가하기</button></a>
+    </div>
+
+    <div>
+        <a href="./selectById.jsp" target="main"><button>정정 / 삭제</button></a>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%@page import="java.io.*"%>
+<%@page import="java.util.*"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+
+	<%
+	String data;
+	int cnt = 0;
+
+	FileReader fl = new FileReader("C:\\Users\\euiyeob\\Desktop\\csvFile\\visitor.txt");
+	StringBuffer sb = new StringBuffer();
+	int ch = 0;
+
+	while ((ch = fl.read()) != -1) {
+		sb.append((char) ch);
+	}
+	data = sb.toString().trim().replace("\n", "");
+	fl.close();
+
+	cnt = Integer.parseInt(data);
+	cnt++;
+
+	data = Integer.toString(cnt);
+
+	FileWriter fl2 = new FileWriter("C:\\Users\\euiyeob\\Desktop\\csvFile\\visitor.txt");
+	fl2.write(data);
+	fl2.close();
+	%>
+	<div>
+		<h1>
+			현제 홈페이지 방문자 수 :
+			<%=data%>
+			명입니다.
+		</h1>
+	</div>
+
+	<div style="display: inline-block; width: 100%;">
+		<iframe src="menu.html" frameborder="0" width="25%" align=left
+			style="height: 100vh; padding-top: 50px; padding-left: 150px;"></iframe>
+		<iframe src="intro.html" name="main" frameborder="0" width="40%"
+			align=left style="height: 100vh; padding-top: 50px;"></iframe>
+	</div>
+
+
+</body>
+</html>

@@ -2,6 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<%@ page import="kr.ac.kopo07.ctc.kopo07.dao.*"%>
+<%@ page import="kr.ac.kopo07.ctc.kopo07.domain.*"%>
+
 <!-- JDBC 사용시 필요한 임포트 -->
 <%@ page import="java.sql.*"%>
 <%@ page import="javax.sql.*"%>
@@ -9,108 +12,93 @@
 <%@ page import="java.util.*"%>
 <%-- 한글 깨짐 --%>
 <%
-    request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 %>
+
+<!-- css연동 -->
+<link rel="stylesheet" href="css/insert2.css">
 <HTML>
 <HEAD>
 </HEAD>
-
-<style>
-	p {
-		font-size :20px;
-		font-weight : bold;
-	}
-
-	input {
-	height: 60px;
-	width: 300px;
-	border-radius: 15px;
-	font-size: 20px;
-	}
-
-	button {
-    background-color:#6a6a76;
-    color: #fff;
-    border:none;
-    border-radius:10px;
-    box-shadow: 0px 0px 2px 2px rgb(102 101 101);
-    height: 50px;
-    width: 150px;
-    cursor: pointer;
-    font-size: 20px;
-    }
-    a {
-	text-decoration: none;
-	color : white;
-	}
-	
-	h1 {
-	padding-left : 100px;
-	}
-    
-</style>
 <BODY>
-	<!-- Mysql데이터 베이스 연결 -->
+
 	<%
+	String name = "";
+	int kor = 0;
+	int eng = 0;
+	int mat = 0;
 
-	Connection conn = null;
-	try {
-		String url = "jdbc:mysql://localhost:33060/kopo07?useSSL=false";
-		String user = "root";
-		String pw = "1234";
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		conn = DriverManager.getConnection(url, user, pw);
-		Statement stmt = conn.createStatement();
+	if (request.getParameter("name").isEmpty()) {
+		name = "유령";
+	} else {
+		name = request.getParameter("name");
+	}
 
-        //======================= 트와이스 테이블에 값넣기 =======================
+	int studentid = Integer.parseInt(request.getParameter("studentid"));
 
-		String name = "";
-		int id = 0;
-		int korea = 0;
-		int english = 0;
-		int math = 0;
+	if (request.getParameter("kor").isEmpty()) {
+		kor = 0;
+	} else {
+		kor = Integer.parseInt(request.getParameter("kor"));
+	}
 
-        try {
+	if (request.getParameter("eng").isEmpty()) {
+		eng = 0;
+	} else {
+		eng = Integer.parseInt(request.getParameter("eng"));
+	}
 
-        name = request.getParameter("name");
-        id = Integer.parseInt(request.getParameter("id"));
-        korea = Integer.parseInt(request.getParameter("kor"));
-        english = Integer.parseInt(request.getParameter("eng"));
-        math = Integer.parseInt(request.getParameter("mat"));
+	if (request.getParameter("mat").isEmpty()) {
+		mat = 0;
+	} else {
+		mat = Integer.parseInt(request.getParameter("mat"));
+	}
 
-        } catch(Exception e) {
-        }
-
-        if(name.equals("")) {
-            name = "없음";
-        }
-	
-        stmt.execute("insert into twice value('"+name+"'," + id + "," + korea + "," + english + "," + math + ");");
-        
-        stmt.close(); 
-        conn.close(); 
-    %>
-
-        <h1>테이블 값 넣기 성공!!</h1>
-
-		<p>이름 : <input type="text" readonly value="<%= name%>"></p>
-		<p>학번 : <input type="text" readonly value="<%= id%>"></p>
-		<p>국어 : <input type="text" readonly value="<%= korea%>"></p>
-		<p>영어 : <input type="text" readonly value="<%= english%>"></p>
-		<p>수학 : <input type="text" readonly value="<%= math%>"></p>
-
-		<div style="padding-left : 125px">
-			<button>
-				<a href="./intro.html" target="main">첫페이 가기</a>
-			</button>
-		</div>
-
-
-    <%
-	} catch (SQLException e) {
-        
+	if (kor > 100 || eng > 100 || mat > 100 || kor < 0 || eng < 0 || mat < 0) {
 	%>
-		<h1>테이블을 우선 생성해주세요!!</h1>
+	<h1>점수 입력이 이상하잖아</h1>
+	<div style="padding-left: 200px;">
+		<button type="button" onclick="history.back(-1);">뒤로가기</button>
+	</div>
+	<%
+	} else {
+
+	StudentItem studentItem = new StudentItem();
+
+	studentItem.setName(name);
+	studentItem.setStudentid(studentid);
+	studentItem.setKor(kor);
+	studentItem.setEng(eng);
+	studentItem.setMat(mat);
+
+	StudentItemDao StudentItemDao = new StudentItemDaoImpl();
+	StudentItem oneStudent = StudentItemDao.insert(studentItem);
+	%>
+
+	<h1>테이블 값 넣기 성공!!</h1>
+
+	<p>
+		이름 : <input type="text" readonly value="<%=name%>">
+	</p>
+	<p>
+		학번 : <input type="text" readonly value="<%=studentid%>">
+	</p>
+	<p>
+		국어 : <input type="text" readonly value="<%=kor%>">
+	</p>
+	<p>
+		영어 : <input type="text" readonly value="<%=eng%>">
+	</p>
+	<p>
+		수학 : <input type="text" readonly value="<%=mat%>">
+	</p>
+
+	<div style="padding-left: 125px">
+		<button>
+			<a href="./intro.html" target="main">첫페이 가기</a>
+		</button>
+	</div>
+
 	<%
 	}
 	%>

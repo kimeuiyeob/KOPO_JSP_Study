@@ -1,0 +1,40 @@
+package kr.ac.kopo07.ctc.kopo07.service;
+
+import java.util.List;
+
+import kr.ac.kopo07.ctc.kopo07.dao.StudentItemDao;
+import kr.ac.kopo07.ctc.kopo07.domain.StudentItem;
+
+//테스트를 위한 클래스 Mock
+public class StudentItemDaoMock implements StudentItemDao {
+
+	@Override
+	public StudentItem create() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public StudentItem selectOne(int id) {
+		StudentItem studentItem = new StudentItem();
+		return studentItem;
+	}
+
+	@Override
+	public List<StudentItem> selectAll(int page, int countPerPage) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<StudentItem> selectAllStudent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int totalCount() {
+		return 75;
+	}
+
+}

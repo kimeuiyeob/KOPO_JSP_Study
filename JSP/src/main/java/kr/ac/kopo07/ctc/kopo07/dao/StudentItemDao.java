@@ -8,19 +8,43 @@ public interface StudentItemDao {
 
 	// ========crud========
 
+	public void createTable();
+
+	public void dropTable();
+
 	StudentItem create();
 
-	StudentItem selectOne(int id);
-	
+	public void insertRandomStudent10();
+
+	// 아이디로 학생 한명 조회
+	public StudentItem selectOne(int id);
+
+	// 학생번호로 학생 한명 조회
+	public StudentItem selectOneByStudentId(int studentid);
+
+	public List<StudentItem> selectAll(int page, int countPerPage);
+
+	// 학생전부 조회
+	public List<StudentItem> selectAllStudent();
+
+	// 학생 추가
+	public StudentItem insert(StudentItem oneStudent);
+
+	// 비어있는 학번 찾기
+	public int emptyStudentId();
+
+	// 학생 한명 수정
+	public StudentItem update(StudentItem oneStudent);
+
+	// 학생 삭제
+	public void deleteOne(int id);
+
+	// 랭킹 등수
+	public int getRank(int studentid);
+
+	// 방문자 카운트
+	public String countVisitor();
+
 	int totalCount();
-
-	List<StudentItem> selectAll(int page, int countPerPage);
-	
-	//페이지 없이 학생전부 조회 => 나중에 위랑 결합시켜야함!!
-	List<StudentItem> selectAllStudent();
-
-	// update();
-
-	// delete
 
 }

@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%@page import="java.io.*"%>
+<%@page import="java.util.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>현제 홈페이지 방문자 수입니다.</h1>
+	<%
+	String data;
+	int cnt = 0;
+
+	FileReader fl = new FileReader("C:\\Users\\euiyeob\\Desktop\\csvFile\\visitor.txt");
+	StringBuffer sb = new StringBuffer();
+	int ch = 0;
+
+	while ((ch = fl.read()) != -1) {
+		sb.append((char) ch);
+	}
+	data = sb.toString().trim().replace("\n", "");
+	fl.close();
+
+	cnt = Integer.parseInt(data);
+	cnt++;
+	%>
+
+</body>
+</html>

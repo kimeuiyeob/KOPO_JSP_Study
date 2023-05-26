@@ -13,7 +13,7 @@ public class StudentItemServiceTest {
 		StudentItemDaoMock studentItemDao = new StudentItemDaoMock();
 		StudentItemService studentItemService = new StudentItemServiceImpl();
 		studentItemService.setStudentItemDao(studentItemDao);
-		Pagination pagination = studentItemService.getPagination(1, 50);
+		Pagination pagination = studentItemService.getPagination(1, 10);
 
 	}
 }

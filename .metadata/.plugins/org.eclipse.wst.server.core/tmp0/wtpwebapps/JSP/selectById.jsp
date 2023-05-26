@@ -8,46 +8,23 @@
 <%@ page import="java.io.*"%>
 <%@ page import="java.util.*"%>
 
+<link rel="stylesheet" href="css/selectById.css">
+
 <HTML>
 <HEAD>
 </HEAD>
 
-<style>
-	p {
-		font-size :30px;
-		font-weight : bold;
-	}
-	button {
-    background-color:#6a6a76;
-    color: #fff;
-    border:none;
-    border-radius:10px;
-    box-shadow: 0px 0px 2px 2px rgb(102 101 101);
-    height: 50px;
-    width: 150px;
-    cursor: pointer;
-    font-size: 20px;
-    }
-	input {
-	height: 60px;
-	width: 300px;
-	border-radius: 15px;
-	font-size: 20px;
-	}
-	.but {
-		padding-left : 50px;
-	}
-</style>
-
 <BODY>
 
 	<form action="selectById2.jsp" method="post">
-    <div style="display : flex">
-		<p>학번 : <input type="text" name="id"> </p>
-		<div class="but" style="padding-top: 35px;">
-		<button type="submit">조회 하기</button>
+		<div style="display: flex">
+			<p>
+				학번 : <input type="text" name="studentid">
+			</p>
+			<div class="but" style="padding-top: 30px">
+				<button type="submit">조회 하기</button>
+			</div>
 		</div>
-    </div>
 	</form>
 
 </BODY>

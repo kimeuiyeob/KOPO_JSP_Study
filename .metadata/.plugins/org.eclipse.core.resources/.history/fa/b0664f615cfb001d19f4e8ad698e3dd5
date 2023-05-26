@@ -1,0 +1,16 @@
+package dao;
+
+import org.junit.jupiter.api.Test;
+
+import kr.ac.kopo07.ctc.kopo07.dao.StudentItemDao;
+import kr.ac.kopo07.ctc.kopo07.dao.StudentItemDaoImpl;
+
+class StudentItemDaoTest {
+
+	@Test
+	void test() {
+		StudentItemDao studentItemDao = new StudentItemDaoImpl();
+
+	}
+
+}

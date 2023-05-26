@@ -1,0 +1,23 @@
+package dao;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+import kr.ac.kopo07.ctc.kopo07.dao.StudentItemDao;
+import kr.ac.kopo07.ctc.kopo07.dao.StudentItemDaoImpl;
+import kr.ac.kopo07.ctc.kopo07.domain.StudentItem;
+
+class StudentItemDaoTest {
+
+	@Test
+	void test_select_one() {
+
+		StudentItemDao studentItemDao = new StudentItemDaoImpl();
+		StudentItem StudentItem = studentItemDao.selectOne(23);
+
+		assertEquals(StudentItem.getName(), "김의엽");
+		
+
+	}
+}

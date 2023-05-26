@@ -1,0 +1,97 @@
+
+<%@ page import="javax.servlet.jsp.tagext.TryCatchFinally"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%@ page import="kr.ac.kopo07.ctc.kopo07.dao.*"%>
+<%@ page import="kr.ac.kopo07.ctc.kopo07.domain.*"%>
+
+<!-- JDBC 사용시 필요한 임포트 -->
+<%@ page import="java.sql.*"%>
+<%@ page import="javax.sql.*"%>
+<%@ page import="java.io.*"%>
+<%@ page import="java.util.*"%>
+
+<HTML>
+<HEAD>
+</HEAD>
+<link rel="stylesheet" href="css/selectAll.css">
+
+<BODY>
+
+	<center>
+		<table>
+			<thead>
+				<tr id="thead">
+					<th>이름</th>
+					<th>번호</th>
+					<th>국어점수</th>
+					<th>영어점수</th>
+					<th>수학점수</th>
+					<th>총점</th>
+					<th>평균</th>
+					<th>등수</th>
+				</tr>
+			</thead>
+
+			<%
+			StudentItemDao StudentItemDao = new StudentItemDaoImpl();
+			List<StudentItem> studentList = StudentItemDao.selectAllStudent();
+
+			Map<Long, Integer> studentMap = new LinkedHashMap<>();
+
+			//===============================================================
+
+			Map<Long, Integer> map = new HashMap<>();
+			map.put(5L, 1);
+			map.put(3L, 2);
+			map.put(2L, 3);
+			List<Map.Entry<Long, Integer>> entryList = new LinkedList<>(map.entrySet());
+			entryList.sort(new Comparator<Map.Entry<Long, Integer>>() {
+				@Override
+				public int compare(Map.Entry<Long, Integer> o1, Map.Entry<Long, Integer> o2) {
+					return o2.getValue() - o1.getValue();
+				}
+			});
+			for (Map.Entry<String, Integer> entry : entryList) {
+				out.print("key : " + entry.getKey() + ", value : " + entry.getValue());
+			}
+
+			//===============================================================
+
+			for (StudentItem student : studentList) {
+			%>
+
+			<tbody>
+				<tr>
+					<td><a id="clickhere"
+						href="select.jsp?id=<%=student.getId()%>"><%=student.getName()%></a></td>
+					<td><%=student.getStudentid()%></td>
+					<td><%=student.getKor()%></td>
+					<td><%=student.getEng()%></td>
+					<td><%=student.getMat()%></td>
+
+					<%
+					int sum = student.getKor() + student.getEng() + student.getMat();
+
+					double avg = (student.getKor() + student.getEng() + student.getMat()) / 3;
+					studentMap.put(student.getId(), sum);
+					%>
+
+					<td><%=sum%></td>
+					<td><%=avg%></td>
+
+
+					<td>등수</td>
+
+				</tr>
+				<%
+				}
+				%>
+			</tbody>
+
+		</table>
+	</center>
+
+</BODY>
+</HTML>

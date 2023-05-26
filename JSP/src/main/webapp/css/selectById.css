@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+p {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+button {
+	background-color: #6a6a76;
+	color: #fff;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0px 0px 2px 2px rgb(102, 101, 101);
+	height: 50px;
+	width: 150px;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+input {
+	height: 60px;
+	width: 300px;
+	border-radius: 15px;
+	font-size: 20px;
+}
+
+.but {
+	padding-left: 50px;
+}

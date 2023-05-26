@@ -1,0 +1,89 @@
+
+<%@ page import="javax.servlet.jsp.tagext.TryCatchFinally"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%@ page import="kr.ac.kopo07.ctc.kopo07.dao.*"%>
+<%@ page import="kr.ac.kopo07.ctc.kopo07.domain.*"%>
+<%@ page import="kr.ac.kopo07.ctc.kopo07.dto.*"%>
+
+<!-- JDBC 사용시 필요한 임포트 -->
+<%@ page import="java.sql.*"%>
+<%@ page import="javax.sql.*"%>
+<%@ page import="java.io.*"%>
+<%@ page import="java.util.*"%>
+
+<HTML>
+<HEAD>
+</HEAD>
+<link rel="stylesheet" href="css/selectAll.css">
+
+<BODY>
+
+	<center>
+		<table>
+			<thead>
+				<tr id="thead">
+					<th>이름</th>
+					<th>번호</th>
+					<th>국어점수</th>
+					<th>영어점수</th>
+					<th>수학점수</th>
+					<th>총점</th>
+					<th>평균</th>
+					<th>등수</th>
+				</tr>
+			</thead>
+
+			<%
+			StudentItemDao StudentItemDao = new StudentItemDaoImpl();
+
+			List<StudentItem> studentList = StudentItemDao.selectAllStudent();
+			List<StudentItemDto> studentListWithSum = new ArrayList<>();
+			//===============================================================
+			for (StudentItem student : studentList) {
+				StudentItemDto oneStu = new StudentItemDto();
+				int kor = student.getKor();
+				int eng = student.getEng();
+				int mat = student.getMat();
+				oneStu.setId(student.getId());
+				oneStu.setStudentid(student.getStudentid());
+				oneStu.setName(student.getName());
+				oneStu.setKor(kor);
+				oneStu.setEng(eng);
+				oneStu.setMat(mat);
+				oneStu.setSum(kor + eng + mat);
+				oneStu.setAvg((double)(kor + eng + mat) / 3.0);
+				studentListWithSum.add(oneStu);
+			}
+			//합계로 정렬
+			/* Collections.sort(studentListWithSum, new StudentItemComparator()); */
+
+			//===============================================================
+			for (StudentItemDto student : studentListWithSum) {
+				int rankNumber = StudentItemDao.getRank(student.getStudentid());
+			%>
+
+			<tbody>
+				<tr>
+					<td><a id="clickhere"
+						href="select.jsp?id=<%=student.getId()%>"><%=student.getName()%></a></td>
+					<td><%=student.getStudentid()%></td>
+					<td><%=student.getKor()%></td>
+					<td><%=student.getEng()%></td>
+					<td><%=student.getMat()%></td>
+					<td><%=student.getSum()%></td>
+					<td><%=student.getAvg()%></td>
+
+					<td><%=rankNumber%></td>
+				</tr>
+				<%
+				}
+				%>
+			</tbody>
+
+		</table>
+	</center>
+
+</BODY>
+</HTML>
