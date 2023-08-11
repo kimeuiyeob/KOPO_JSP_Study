@@ -1,5 +1,0 @@
-package kr.ac.kopo07.ctc.kopo07.dao;
-
-public class StudentItemDaoImpl implements StudentItemDao{
-
-}

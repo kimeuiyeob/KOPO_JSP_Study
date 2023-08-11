@@ -64,7 +64,6 @@ public class StudentItemDaoImpl implements StudentItemDao {
 		} catch (Exception e) {
 			;
 		}
-
 	}
 
 //	====================================================================
